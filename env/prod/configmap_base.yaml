@@ -1,0 +1,79 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      - system:node-proxier
+      rolearn: arn:aws:iam::978388149693:role/ops-data-discovery-sp-fargate-pf-20230202233634427800000002
+      username: system:node:{{SessionName}}
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      - system:node-proxier
+      rolearn: arn:aws:iam::978388149693:role/default-20230202233634426800000001
+      username: system:node:{{SessionName}}
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::978388149693:role/C2G-N3
+      username: C2G-N3
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::351276562033:role/Infraterrestrutura
+      username: infraestrutura
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::334901168872:role/C2G-N2
+      username: nextiosn2
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::334901168872:role/C2G-N1
+      username: nextiosn1
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::334901168872:role/C2G-DBA
+      username: nextiosdba
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::978388149693:role/prd-ops-data-discovery-bastion-role
+      username: bastion
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::978388149693:role/prd-ops-data-discovery-cluster-20230202233634430700000003
+      username: prd-ops-data-discovery-cluster
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::785212834098:role/AWSReservedSSO_UAT_NPRD-C2G-N3_SSO_1b6debba86a212e5
+      username: SSO_UAT_NPRD-C2G-N3_SSO_1b6debba86a212e5
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::785212834098:role/AWSReservedSSO_UAT_NPRD-Infraestrutura_SSO_6d4923472cfe9c12
+      username: SSO_UAT_NPRD-Infraestrutura_SSO_6d4923472cfe9c12
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::785212834098:role/AWSReservedSSO_UAT_Arquitetura-Sustentacao_SSO_baa4c9a37cd15075
+      username: SSO_UAT_Arquitetura-Sustentacao_SSO_baa4c9a37cd15075
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::978388149693:role/AWSReservedSSO_PRD_C2G-N3_SSO_1a5bc3e3b574c695
+      username: AWSReservedSSO_PRD_C2G-N3_SSO_1a5bc3e3b574c695
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::978388149693:role/AWSReservedSSO_PRD_Infraestrutura_SSO_c0c278718a525307
+      username: AWSReservedSSO_PRD_Infraestrutura_SSO_c0c278718a525307
+  mapUsers: |
+    - groups:
+      - system:masters
+      userarn: arn:aws:iam::978388149693:user/user_onetrust
+      username: user_onetrust
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2023-02-10T19:04:58Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "1998526"
+  uid: 96bbdf8f-5c07-48a5-8397-7f1c97b10b95
